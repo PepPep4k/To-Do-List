@@ -13,6 +13,9 @@
     <div class="w-[600px] h-[650px] bg-white p-6 rounded-lg shadow-lg overflow-y-auto">
         <h1 class="text-4xl font-bold mb-6 text-center text-gray-900">To-Do List</h1>
 
+        <!-- Calendar showing the day of the week -->
+        <div id="calendar" class="grid grid-cols-7 gap-2 mb-5"> </div>
+
         <!-- Input for new tasks -->
         <div class="flex mb-5">
             <input id="task-input" type="text" placeholder="✏️ เขียนสิ่งที่ต้องทำ..." 
@@ -23,12 +26,12 @@
 
         <!-- Task List -->
         <div>
-            <h2 id="list-title" class="text-lg font-semibold text-stone-800 mb-3">รายการทั้งหมด</h2>
+            <h2 id="list-title" class="text-lg font-semibold text-stone-800 mb-3 cursor-pointer">รายการทั้งหมด✏️</h2>
             <ul id="task-list" class="space-y-2"></ul>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
-
+    
 </html>
