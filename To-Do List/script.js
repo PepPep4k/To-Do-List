@@ -1,4 +1,4 @@
-// ฟังก์ชันสำหรับเพิ่มงานใหม่
+// ฟังก์ชันเพิ่ม
 function addTask() {
     const taskInput = document.getElementById('task-input');
     const taskText = taskInput.value.trim();
@@ -10,11 +10,11 @@ function addTask() {
 
     const list = document.getElementById('task-list');
 
-    // สร้าง Element ใหม่
+    // สร้าง Element
     const li = document.createElement('li');
     li.className = "flex items-center bg-gray-50 p-2 rounded-md justify-between";
 
-    // Checkbox สำหรับติ๊กถูก
+    // Checkbox
     const checkbox = document.createElement('input');
     checkbox.type = "checkbox";
     checkbox.className = "mr-3";
@@ -61,7 +61,7 @@ function addTask() {
     taskInput.value = "";
 }
 
-// ฟังก์ชันสำหรับแก้ไขชื่อหัวข้อ
+// ฟังก์ชันแก้ไขหัวข้อ
 const listTitle = document.getElementById('list-title');
 listTitle.addEventListener('click', () => {
     Swal.fire({
@@ -81,7 +81,7 @@ listTitle.addEventListener('click', () => {
     });
 });
 
-// ฟังก์ชันสำหรับแก้ไขงาน
+// ฟังก์ชันแก้ไข
 function editTask(taskElement) {
     Swal.fire({
         title: 'แก้ไขสิ่งที่ต้องทำ',
@@ -100,32 +100,28 @@ function editTask(taskElement) {
     });
 }
 
-// ✅ ฟังก์ชันสำหรับสร้างปฏิทินแสดงวันที่ในสัปดาห์
+// ฟังก์ชันปฏิทิน
 function renderCalendar() {
     const calendar = document.getElementById('calendar');
-    calendar.innerHTML = ""; // ล้างข้อมูลเก่า
+    calendar.innerHTML = "";
 
     const today = new Date();
-    const currentDay = today.getDay(); // วันในสัปดาห์ (0 = อาทิตย์, 6 = เสาร์)
+    const currentDay = today.getDay(); 
     
-    // หาวันที่ของวันอาทิตย์ของสัปดาห์นี้
+    // หาวันที่ของสัปดาห์
     const startOfWeek = new Date(today);
     startOfWeek.setDate(today.getDate() - currentDay);
 
-    // Loop เพื่อสร้างกล่องวันที่ 7 ช่อง
     for (let i = 0; i < 7; i++) {
         const dateBox = new Date(startOfWeek);
         dateBox.setDate(startOfWeek.getDate() + i);
 
-        // สร้าง Element
         const dayElement = document.createElement('div');
         dayElement.className = "bg-pink-200 p-3 rounded-md text-center cursor-pointer";
 
-        // แสดงวันที่
         const dayNames = ["Sun", "Mon", "Tue" , "Wed" , "Thu" , "Fri" , "Sun" ];
         dayElement.textContent = dayNames[dateBox.getDay()]
 
-        // ไฮไลต์วันที่ปัจจุบัน
         if (i === currentDay) {
             dayElement.classList.add("bg-blue-200", "font-bold");
             dayElement.classList.remove("bg-pink-200")
@@ -135,7 +131,6 @@ function renderCalendar() {
     }
 }
 
-// ✅ เรียกใช้ฟังก์ชันเมื่อ DOM โหลดเสร็จ
 document.addEventListener("DOMContentLoaded", function () {
     renderCalendar();
 });
