@@ -4,4 +4,3 @@ You can add, complete, and delete tasks easily. Whether it’s for work, school,
 Perfect for beginners to learn how to manage states, events, and user interactions in a real project.
 
 🔗 [Try it here](https://....)
-
